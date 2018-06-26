@@ -7,7 +7,15 @@ ingredients = [
 ]
 
 def sandwich_request(ingredients, order) 
-  # your code here!
+  order_build = Array.new
+  order.each do |order_item|
+    ingredients.each do |ingredient_set|
+      if ingredient_set.include?(order_item)
+          order_build.push order_item
+      end
+    end
+  end
+  order_build == order 
 end
 
 # example city_info hash
@@ -35,5 +43,9 @@ cities = {
 }
 
 def city_populations(cities)
-  # your code here!
+  total_pop = 0 
+ cities.each do |city_hash|
+     total_pop+=city_hash[1][:population]
+ end
+ total_pop
 end
